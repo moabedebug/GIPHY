@@ -14,13 +14,21 @@ export default function HomeScreen({ navigation }) {
                 <View style={Styles.row}>
                     <TouchableOpacity 
                         style={Styles.button} 
-                        onPress={() => navigation.navigate("Result")}
+                        onPress={() => 
+                            navigation.navigate("Result", {
+                                choose: "gifs",
+                            })
+                        }
                     >
                         <Text style={Styles.textButton}>GIFs</Text>
                     </TouchableOpacity>
                     <TouchableOpacity 
                         style={Styles.button}
-                        onPress={() => navigation.navigate("Result")}
+                        onPress={() => 
+                            navigation.navigate("Result", {
+                                choose: "stickers",
+                            })
+                        }
                     >
                         <Text style={Styles.textButton}>Stickers</Text>
                     </TouchableOpacity>
