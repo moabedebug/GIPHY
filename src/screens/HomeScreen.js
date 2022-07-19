@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, ImageBackground, StatusBar } from "react-native"
+import { View, Text, StyleSheet, ImageBackground, StatusBar, TouchableOpacity } from "react-native"
 
 export default function HomeScreen() {
     return (
@@ -10,6 +10,15 @@ export default function HomeScreen() {
             <StatusBar
                 barStyle="light-content"
             />
+            <Text style={Styles.mainText}>Pesquisar por:</Text>
+                <View style={Styles.row}>
+                    <TouchableOpacity style={Styles.button}>
+                        <Text style={Styles.textButton}>GIFs</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={Styles.button}>
+                        <Text style={Styles.textButton}>Stickers</Text>
+                    </TouchableOpacity>
+                </View>
         </ImageBackground>
     )
 }
