@@ -1,18 +1,14 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Button } from "react-native"
+import { View, Text, StyleSheet, ImageBackground } from "react-native"
 
-export default function HomeScreen(props) {
-    console.log(props)
+export default function HomeScreen() {
     return (
-        <View style={Styles.container}>
-            <Text> Home Screen </Text>
-            <TouchableOpacity
-                onPress={() => props.navigation.navigate("Result")}
-                style={Styles.btn}
-            >
-                <Text style={Styles.textBtn}>Navegar para Result</Text>
-            </TouchableOpacity>
-        </View>
+        <ImageBackground 
+            style={{ flex: 1 }}
+            source={require("../../assets/HomePage.png")}
+        >
+            
+        </ImageBackground>
     )
 }
 
@@ -22,14 +18,4 @@ const Styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center"
     },
-    btn: {
-        padding: 5,
-        backgroundColor: "#FF0000",
-        borderRadius: 5,
-    },
-    textBtn: {
-        textAlign: "center",
-        color: "#FFF",
-        fontSize: 18
-    }
 })
