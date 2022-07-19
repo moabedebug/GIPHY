@@ -1,16 +1,14 @@
 import React from 'react'
-import { View, Text, StyleSheet,Button, TouchableOpacity } from "react-native"
+import { View, Text, StyleSheet, Button, TouchableOpacity } from "react-native"
 
-export default function Result(props) {
+export default function Result({route}) {
+
+    const choose = route.params.choose
+    const link = `api.giphy.com/v1/${choose}/search`
+    
     return (
         <View style={Styles.container}>
-            <Text> Result</Text>
-            <TouchableOpacity
-                onPress={() => props.navigation.navigate("Details")}
-                style={Styles.btn}
-            >
-                <Text style={Styles.textBtn}>Navegar para Details</Text>
-            </TouchableOpacity>
+            <Text> Result </Text>
         </View>
     )
 }
