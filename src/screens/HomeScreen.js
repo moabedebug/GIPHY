@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, ImageBackground, StatusBar, TouchableOpacity } 
 export default function HomeScreen() {
     return (
         <ImageBackground 
-            style={{ flex: 1 }}
+            style={Styles.container}
             source={require("../../assets/HomePage.png")}
         >
             <StatusBar
@@ -29,4 +29,28 @@ const Styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center"
     },
+    mainText: {
+        color: "white",
+        fontSize: 25,
+        fontWeight: "bold"
+    },
+    row: {
+        flexDirection: "row",
+    },
+    button: {
+        width: 100,
+        height: 50,
+        borderWidth: 3,
+        borderColor: "white",
+        borderRadius: 10,
+        backgroundColor: "white",
+        margin: 10,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    textButton: {
+        color: "black",
+        fontSize: 15,
+        fontWeight: "bold"
+    }
 })
