@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, ImageBackground, StatusBar, TouchableOpacity } from "react-native"
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
     return (
         <ImageBackground 
             style={Styles.container}
@@ -12,10 +12,16 @@ export default function HomeScreen() {
             />
             <Text style={Styles.mainText}>Pesquisar por:</Text>
                 <View style={Styles.row}>
-                    <TouchableOpacity style={Styles.button}>
+                    <TouchableOpacity 
+                        style={Styles.button} 
+                        onPress={() => navigation.navigate("Result")}
+                    >
                         <Text style={Styles.textButton}>GIFs</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={Styles.button}>
+                    <TouchableOpacity 
+                        style={Styles.button}
+                        onPress={() => navigation.navigate("Result")}
+                    >
                         <Text style={Styles.textButton}>Stickers</Text>
                     </TouchableOpacity>
                 </View>
