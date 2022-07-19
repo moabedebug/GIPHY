@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, ImageBackground } from "react-native"
+import { View, Text, StyleSheet, ImageBackground, StatusBar } from "react-native"
 
 export default function HomeScreen() {
     return (
@@ -7,7 +7,9 @@ export default function HomeScreen() {
             style={{ flex: 1 }}
             source={require("../../assets/HomePage.png")}
         >
-            
+            <StatusBar
+                barStyle="light-content"
+            />
         </ImageBackground>
     )
 }
