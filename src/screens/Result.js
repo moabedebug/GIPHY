@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, Button, TouchableOpacity } from "react-native"
+import { View, Text, StyleSheet, StatusBar, SafeAreaView } from "react-native"
 
 export default function Result({route}) {
 
@@ -7,26 +7,14 @@ export default function Result({route}) {
     const link = `api.giphy.com/v1/${choose}/search`
     
     return (
-        <View style={Styles.container}>
+        <SafeAreaView style={Styles.view}>
             <Text> Result </Text>
-        </View>
+        </SafeAreaView>
     )
 }
 
 const Styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
+    view: {
+        marginTop: StatusBar.currentHeight
     },
-    btn: {
-        padding: 5,
-        backgroundColor: "#FF0000",
-        borderRadius: 5,
-    },
-    textBtn: {
-        textAlign: "center",
-        color: "#FFF",
-        fontSize: 18
-    }
 })
