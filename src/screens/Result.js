@@ -1,14 +1,37 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet, StatusBar, SafeAreaView, ImageBackground, TextInput } from "react-native"
+import { View, Text, StyleSheet, StatusBar, SafeAreaView, ImageBackground, TextInput, keyboard, Keyboard } from "react-native"
 
 import { Ionicons } from "react-native-vector-icons"
+
+import axios from 'axios'
+import API_KEY from '../services/API_KEY.js'
 
 export default function Result({navigation, route}) {
 
     const choose = route.params.choose
-    const link = `api.giphy.com/v1/${choose}/search`
+    const link = `https://api.giphy.com/v1/${choose}/search`
 
     const [text, setText] = useState("")
+    const [data, setData] = useState([])
+
+    async function request(text) {
+        Keyboard.dismiss()
+
+        try {
+            const results = await axios.get(link, {
+                params: {
+                    api_key: API_KEY,
+                    q: text,
+                    lang: "pt"
+                }
+            })
+            console.log(results.data.data);
+            setData(results.data.data)
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     
     return (
         <ImageBackground
@@ -35,7 +58,7 @@ export default function Result({navigation, route}) {
                         name="search"
                         size={40}
                         color="white"
-                        onPress={() => {}}
+                        onPress={() => {request(text)}}
                     />
                 </View>
             </SafeAreaView>
