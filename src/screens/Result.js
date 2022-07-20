@@ -7,7 +7,8 @@ import {
     Keyboard,
     FlatList,
     Image,
-    Dimensions
+    Dimensions,
+    TouchableOpacity
 } from "react-native"
 
 import SearchBar from '../components/SearchBar.js'
@@ -58,12 +59,18 @@ export default function Result({navigation, route}) {
                     data={data}
                     keyExtractor={(element) => element.id}
                     numColumns={2}
-                    renderItem={({item}) => {
+                    renderItem={({ item }) => {
                         return (
-                            <Image
-                                style={Styles.image}
-                                source={{uri: item.images.preview_gif.url}}
-                            />
+                            <TouchableOpacity
+                                onPress={() => 
+                                    navigation.navigate("Details")
+                                }
+                            >
+                                <Image
+                                    style={Styles.image}
+                                    source={{uri: item.images.preview_gif.url}}
+                                />
+                            </TouchableOpacity>
                         )
                     }}
                 />
