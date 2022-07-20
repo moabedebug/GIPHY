@@ -42,24 +42,6 @@ export default function Result({navigation, route}) {
         }
     }
 
-    async function request(text) {
-        Keyboard.dismiss()
-
-        try {
-            const results = await axios.get(link, {
-                params: {
-                    api_key: API_KEY,
-                    q: text,
-                    lang: "pt"
-                }
-            })
-            console.log(results.data.data);
-            setData(results.data.data)
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
     return (
         <ImageBackground
             source={require("../../assets/BG.png")}
