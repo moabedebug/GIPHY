@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, StatusBar, SafeAreaView, ImageBackground, TextI
 
 import { Ionicons } from "react-native-vector-icons"
 
-export default function Result({route}) {
+export default function Result({navigation, route}) {
 
     const choose = route.params.choose
     const link = `api.giphy.com/v1/${choose}/search`
@@ -21,7 +21,7 @@ export default function Result({route}) {
                         name="chevron-back"
                         size={40}
                         color="white"m
-                        onPress={() => {}}
+                        onPress={() => {navigation.navigate("HomeScreen")}}
                     /> 
                     <TextInput
                         placeholder='Pesquisar'
