@@ -53,6 +53,7 @@ export default function Result({navigation, route}) {
                         value={text}
                         onChangeText={(value) => setText(value)}
                         style={Styles.TextInput}
+                        onSubmitEditing={() => {request(text)}}
                     />
                     <Ionicons
                         name="search"
