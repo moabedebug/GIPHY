@@ -63,7 +63,9 @@ export default function Result({navigation, route}) {
                         return (
                             <TouchableOpacity
                                 onPress={() => 
-                                    navigation.navigate("Details")
+                                    navigation.navigate("Details", {
+                                        item:item,
+                                    })
                                 }
                             >
                                 <Image
