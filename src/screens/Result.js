@@ -1,5 +1,14 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet, StatusBar, SafeAreaView, ImageBackground, TextInput, keyboard, Keyboard } from "react-native"
+import { 
+    StyleSheet,
+    StatusBar,
+    SafeAreaView,
+    ImageBackground,
+    Keyboard,
+    FlatList,
+    Image,
+    Dimensions
+} from "react-native"
 
 import SearchBar from '../components/SearchBar.js'
 
@@ -63,10 +72,26 @@ export default function Result({navigation, route}) {
                     setText={setText}
                     request={request}
                 />
+                <FlatList
+                    data={data}
+                    keyExtractor={(element) => element.id}
+                    numColumns={2}
+                    renderItem={({item}) => {
+                        return (
+                            <Image
+                                style={Styles.image}
+                                source={{uri: item.images.preview_gif.url}}
+                            />
+                        )
+                    }}
+                />
             </SafeAreaView>
         </ImageBackground>
     )
 }
+
+const {width, height} = Dimensions.get("window")
+const IMAGE_WIDTH = width
 
 const Styles = StyleSheet.create({
     container: {
@@ -75,4 +100,8 @@ const Styles = StyleSheet.create({
     view: {
         marginTop: StatusBar.currentHeight
     },
+    image: {
+        width: IMAGE_WIDTH/2,
+        height: IMAGE_WIDTH/2
+    }
 })
