@@ -33,9 +33,15 @@ export default function Details({  navigation, route }) {
                     <Image
                         style={Styles.image}
                         source={{uri: data.images.original.url}}
+                        resizeMode="contain"
                     />
                 </View>
-
+                <Text style={Styles.textTitle}>{data.title}</Text>
+                <Ionicons
+                    name="globe"
+                    size={40}
+                    color="white"
+                />
             </SafeAreaView>
         </ImageBackground>
     )
@@ -62,5 +68,9 @@ const Styles = StyleSheet.create({
     },
     image: {
         flex: 1
+    },
+    textTitle: {
+        color: "white",
+        fontSize: 18
     }
 })
