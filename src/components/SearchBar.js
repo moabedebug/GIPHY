@@ -16,7 +16,7 @@ export default function SearchBar({ navigation, text, setText, request }) {
                     onPress={() => {navigation.navigate("HomeScreen")}}
                 /> 
                 <TextInput
-                    placeholder='Pesquisar'
+                    placeholder='Search'
                     autoCapitalize='none'
                     autoCorrect={false}
                     value={text}
