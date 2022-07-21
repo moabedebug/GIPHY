@@ -8,10 +8,13 @@ import {
     FlatList,
     Image,
     Dimensions,
-    TouchableOpacity
+    TouchableOpacity,
+    Text,
+    View
 } from "react-native"
 
 import SearchBar from '../components/SearchBar.js'
+import InfoText from '../components/infoText.js'
 
 import axios from 'axios'
 import API_KEY from '../services/API_KEY.js'
@@ -59,6 +62,9 @@ export default function Result({navigation, route}) {
                     data={data}
                     keyExtractor={(element) => element.id}
                     numColumns={2}
+                    ListHeaderComponent={
+                        <InfoText/>
+                    }
                     renderItem={({ item }) => {
                         return (
                             <TouchableOpacity
