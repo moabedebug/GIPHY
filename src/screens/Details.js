@@ -6,7 +6,8 @@ import {
     ImageBackground,
     StatusBar,
     SafeAreaView,
-    Image
+    Image,
+    TouchableOpacity
  } from "react-native"
 
 import { Ionicons } from "react-native-vector-icons"
@@ -36,12 +37,14 @@ export default function Details({  navigation, route }) {
                         resizeMode="contain"
                     />
                 </View>
-                <Text style={Styles.textTitle}>{data.title}</Text>
-                <Ionicons
-                    name="globe"
-                    size={40}
-                    color="white"
-                />
+                <View style={Styles.textContainer}>
+                    <Text style={Styles.textTitle}>{data.title}</Text>
+                    <Ionicons
+                        name="globe"
+                        size={40}
+                        color="white"
+                    />
+                </View>
             </SafeAreaView>
         </ImageBackground>
     )
@@ -59,7 +62,8 @@ const Styles = StyleSheet.create({
     },
     text: {
         color: "white",
-        fontSize: 22
+        fontSize: 22,
+        width: "80%"
     },
     imageContainer: {
         width: "100%",
@@ -68,6 +72,11 @@ const Styles = StyleSheet.create({
     },
     image: {
         flex: 1
+    },
+    textContainer: {
+        flexDirection: "row",
+        justifyContent: "center",
+        padding: 10
     },
     textTitle: {
         color: "white",
