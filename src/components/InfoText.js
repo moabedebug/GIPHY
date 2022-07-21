@@ -3,8 +3,8 @@ import { View, Text, StyleSheet } from "react-native"
 
 import { Ionicons } from "react-native-vector-icons"
 
-export default function InfoText() {
-    return (
+export default function InfoText({ showMessage }) {
+    return  showMessage ? (
         <View style={Styles.headerContainer}>
             <Ionicons 
                 name="arrow-up" 
@@ -13,7 +13,7 @@ export default function InfoText() {
             />
             <Text style={Styles.headerText}>Use the search bar to find what you're looking for</Text>
         </View>
-    )
+    ) : null
 }
 
 const Styles = StyleSheet.create({

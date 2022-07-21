@@ -12,7 +12,7 @@ export default function SearchBar({ navigation, text, setText, request }) {
                 <Ionicons
                     name="chevron-back"
                     size={40}
-                    color="white"m
+                    color="white"
                     onPress={() => {navigation.navigate("HomeScreen")}}
                 /> 
                 <TextInput

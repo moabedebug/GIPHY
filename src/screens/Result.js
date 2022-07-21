@@ -9,12 +9,11 @@ import {
     Image,
     Dimensions,
     TouchableOpacity,
-    Text,
-    View
 } from "react-native"
 
 import SearchBar from '../components/SearchBar.js'
-import InfoText from '../components/infoText.js'
+import InfoText from "../components/InfoText"
+
 
 import axios from 'axios'
 import API_KEY from '../services/API_KEY.js'
@@ -27,9 +26,11 @@ export default function Result({navigation, route}) {
     
     const [data, setData] = useState([])
     const [text, setText] = useState("")
+    const [showMessage, setShowMessage] = useState(true)
 
     async function request(text) {
         Keyboard.dismiss()
+        setShowMessage(false)
 
         try {
             const results = await axios.get(link, {
@@ -63,7 +64,7 @@ export default function Result({navigation, route}) {
                     keyExtractor={(element) => element.id}
                     numColumns={2}
                     ListHeaderComponent={
-                        <InfoText/>
+                        <InfoText showMessage={showMessage}/>
                     }
                     renderItem={({ item }) => {
                         return (
