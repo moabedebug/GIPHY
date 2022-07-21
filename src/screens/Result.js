@@ -14,6 +14,7 @@ import {
 import SearchBar from '../components/SearchBar.js'
 import InfoText from "../components/InfoText"
 import Loading from '../components/Loading.js'
+import Error from '../components/Error.js'
 
 
 import axios from 'axios'
@@ -29,9 +30,11 @@ export default function Result({navigation, route}) {
     const [text, setText] = useState("")
     const [showMessage, setShowMessage] = useState(true)
     const [isLoading, setIsLoading] = useState(false)
+    const [showError, setShowError] = useState(false)
 
     async function request(text) {
         Keyboard.dismiss()
+        showError && setShowError(false) 
         setShowMessage(false)
         setIsLoading(true)
 
@@ -43,11 +46,13 @@ export default function Result({navigation, route}) {
                     lang: "pt"
                 }
             })
-            console.log(results.data.data);
+            // console.log(results.data.data);
             setIsLoading(false)
             setData(results.data.data)
         } catch (err) {
             console.log(err);
+            setIsLoading(false)
+            setShowError(true)
         }
     }
 
@@ -71,6 +76,7 @@ export default function Result({navigation, route}) {
                         <>
                             <InfoText showMessage={showMessage}/>
                             <Loading isLoading={isLoading} />
+                            <Error showError={showError}/>
                         </>
                     }
                     renderItem={({ item }) => {
