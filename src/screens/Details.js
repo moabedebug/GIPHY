@@ -7,7 +7,8 @@ import {
     StatusBar,
     SafeAreaView,
     Image,
-    TouchableOpacity
+    TouchableOpacity,
+    Linking
  } from "react-native"
 
 import { Ionicons } from "react-native-vector-icons"
@@ -39,11 +40,17 @@ export default function Details({  navigation, route }) {
                 </View>
                 <View style={Styles.textContainer}>
                     <Text style={Styles.textTitle}>{data.title}</Text>
-                    <Ionicons
-                        name="globe"
-                        size={40}
-                        color="white"
-                    />
+                    <TouchableOpacity 
+                        onPress={() => 
+                            Linking.openURL(data.images.original.url)
+                        }
+                    >
+                        <Ionicons
+                            name="globe"
+                            size={40}
+                            color="white"
+                        />
+                    </TouchableOpacity>
                 </View>
             </SafeAreaView>
         </ImageBackground>
