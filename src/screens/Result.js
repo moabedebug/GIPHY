@@ -82,7 +82,8 @@ export default function Result({navigation, route}) {
 }
 
 const {width, height} = Dimensions.get("window")
-const IMAGE_WIDTH = width
+const COLUMN_WIDTH = width / 2
+const IMAGE_WIDTH = COLUMN_WIDTH * 0.9
 
 const Styles = StyleSheet.create({
     container: {
@@ -92,7 +93,8 @@ const Styles = StyleSheet.create({
         marginTop: StatusBar.currentHeight
     },
     image: {
-        width: IMAGE_WIDTH/2,
-        height: IMAGE_WIDTH/2
+        width: IMAGE_WIDTH,
+        height: IMAGE_WIDTH,
+        margin: IMAGE_WIDTH * 0.05
     }
 })
