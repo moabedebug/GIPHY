@@ -13,6 +13,7 @@ import {
 
 import SearchBar from '../components/SearchBar.js'
 import InfoText from "../components/InfoText"
+import Loading from '../components/Loading.js'
 
 
 import axios from 'axios'
@@ -27,10 +28,12 @@ export default function Result({navigation, route}) {
     const [data, setData] = useState([])
     const [text, setText] = useState("")
     const [showMessage, setShowMessage] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
 
     async function request(text) {
         Keyboard.dismiss()
         setShowMessage(false)
+        setIsLoading(true)
 
         try {
             const results = await axios.get(link, {
@@ -41,6 +44,7 @@ export default function Result({navigation, route}) {
                 }
             })
             console.log(results.data.data);
+            setIsLoading(false)
             setData(results.data.data)
         } catch (err) {
             console.log(err);
@@ -64,7 +68,10 @@ export default function Result({navigation, route}) {
                     keyExtractor={(element) => element.id}
                     numColumns={2}
                     ListHeaderComponent={
-                        <InfoText showMessage={showMessage}/>
+                        <>
+                            <InfoText showMessage={showMessage}/>
+                            <Loading isLoading={isLoading} />
+                        </>
                     }
                     renderItem={({ item }) => {
                         return (
