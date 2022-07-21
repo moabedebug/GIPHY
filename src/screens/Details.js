@@ -28,7 +28,7 @@ export default function Details({  navigation, route }) {
                         color="white"
                         onPress={() => navigation.pop()}
                     />
-                    <Text style={Styles.text}> Details </Text>
+                    <Text style={Styles.text}> Results </Text>
                 </View>
                 
                 <View style={Styles.imageContainer}>
