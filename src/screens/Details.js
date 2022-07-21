@@ -5,7 +5,8 @@ import {
     StyleSheet,
     ImageBackground,
     StatusBar,
-    SafeAreaView
+    SafeAreaView,
+    Image
  } from "react-native"
 
 import { Ionicons } from "react-native-vector-icons"
@@ -27,6 +28,14 @@ export default function Details({  navigation, route }) {
                     />
                     <Text style={Styles.text}> Details </Text>
                 </View>
+                
+                <View style={Styles.imageContainer}>
+                    <Image
+                        style={Styles.image}
+                        source={{uri: data.images.original.url}}
+                    />
+                </View>
+
             </SafeAreaView>
         </ImageBackground>
     )
@@ -45,5 +54,13 @@ const Styles = StyleSheet.create({
     text: {
         color: "white",
         fontSize: 22
+    },
+    imageContainer: {
+        width: "100%",
+        height: "50%",
+        backgroundColor: "rgba(171,171,171,0.8)"
+    },
+    image: {
+        flex: 1
     }
 })
